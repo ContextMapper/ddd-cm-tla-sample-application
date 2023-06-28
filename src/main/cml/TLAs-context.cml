@@ -1,0 +1,31 @@
+
+BoundedContext TLAs_Context {
+
+    Aggregate ThreeLetterAbbreviation {
+        Entity ThreeLetterAbbreviation {
+            aggregateRoot
+            - Abbreviation name;
+            String meaning;
+            Set<String> alternativeMeanings;
+            String link;
+            - TLAState status;
+
+            Repository ThreeLetterAbbreviationRepository {
+                @ThreeLetterAbbreviation save(@ThreeLetterAbbreviation tla);
+                Optional<@ThreeLetterAbbreviation> findByName(@Abbreviation name);
+                List<@ThreeLetterAbbreviation> findAll();
+            }
+        }
+
+        ValueObject Abbreviation {
+            String name;
+        }
+
+        enum TLAState {
+            aggregateLifecycle
+
+            PROPOSED, ACCEPTED, DECLINED, ARCHIVED;
+        }
+    }
+
+}
