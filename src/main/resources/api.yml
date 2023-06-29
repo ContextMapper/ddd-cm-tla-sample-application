@@ -1,0 +1,41 @@
+openapi: "3.0.3"
+info:
+  title: Domain-driven Design & Context Mapper - Three Letter Abbreviations (TLAs) Sample Application
+  description: |-
+    This is an example application illustrating a DDD Bounded Context implementation based on Java and Spring Boot.
+    It illustrates how to integrate Context Mapper to validate code against the CML domain model and using generated
+    artifacts in the Arc42 documentation.
+  contact:
+    email: stefan@contextmapper.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.0.1
+paths:
+  /tlas:
+    get:
+      summary: List all TLAs
+      operationId: listTLAs
+      tags:
+        - tlas
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TLADto'
+components:
+  schemas:
+    TLADto:
+      type: object
+      required:
+        - name
+        - meaning
+      properties:
+        name:
+          type: string
+        meaning:
+          type: string

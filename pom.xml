@@ -21,25 +21,65 @@
         <contextmapper.archunit.version>1.2.0</contextmapper.archunit.version>
         <archunit.version>1.0.1</archunit.version>
         <contextmapper.version>6.8.0</contextmapper.version>
+        <spring.version>3.1.1</spring.version>
+        <jmolecules.version>1.7.0</jmolecules.version>
+        <apache.commons.version>3.12.0</apache.commons.version>
+        <guava.version>32.0.1-jre</guava.version>
+        <equals.verifier.version>3.14.3</equals.verifier.version>
+        <springfox.swagger.version>3.0.0</springfox.swagger.version>
+        <swagger.core.jakarta.version>2.2.7</swagger.core.jakarta.version>
+        <jackson.nullable.version>0.2.6</jackson.nullable.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.jmolecules</groupId>
             <artifactId>jmolecules-ddd</artifactId>
-            <version>1.7.0</version>
+            <version>${jmolecules.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.12.0</version>
+            <version>${apache.commons.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>32.0.1-jre</version>
+            <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.contextmapper</groupId>
+            <artifactId>context-mapper-cli</artifactId>
+            <version>${contextmapper.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox.swagger.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.swagger.core.v3</groupId>
+                    <artifactId>swagger-annotations</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-core-jakarta</artifactId>
+            <version>${swagger.core.jakarta.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>${jackson.nullable.version}</version>
         </dependency>
 
+        <!-- testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -62,6 +102,7 @@
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>${assertj.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.tngtech.archunit</groupId>
@@ -72,18 +113,14 @@
         <dependency>
             <groupId>nl.jqno.equalsverifier</groupId>
             <artifactId>equalsverifier</artifactId>
-            <version>3.14.3</version>
+            <version>${equals.verifier.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.contextmapper</groupId>
             <artifactId>context-mapper-archunit-extension</artifactId>
             <version>${contextmapper.archunit.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.contextmapper</groupId>
-            <artifactId>context-mapper-cli</artifactId>
-            <version>${contextmapper.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -220,6 +257,33 @@
                                 <idseparator>-</idseparator>
                                 <docinfo1>true</docinfo1>
                             </attributes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>6.6.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>
+                                ${project.basedir}/src/main/resources/api.yml
+                            </inputSpec>
+                            <generatorName>spring</generatorName>
+                            <apiPackage>org.contextmapper.sample.tlas.infrastructure.api</apiPackage>
+                            <modelPackage>org.contextmapper.sample.tlas.infrastructure.api.model</modelPackage>
+                            <supportingFilesToGenerate>
+                                ApiUtil.java
+                            </supportingFilesToGenerate>
+                            <configOptions>
+                                <delegatePattern>true</delegatePattern>
+                                <useSpringBoot3>true</useSpringBoot3>
+                            </configOptions>
                         </configuration>
                     </execution>
                 </executions>
