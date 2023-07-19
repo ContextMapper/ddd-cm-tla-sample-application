@@ -13,7 +13,8 @@ class OnionArchitectureTest {
         onionArchitecture()
                 .domainModels(BASE_PACKAGE + ".domain..")
                 .applicationServices(BASE_PACKAGE + ".application..")
-                .adapter("infra-main", BASE_PACKAGE + ".infrastructure.main");
+                .adapter("restful-api", BASE_PACKAGE + ".infrastructure.api..")
+                .adapter("jpa", BASE_PACKAGE + ".infrastructure.jpa..");
     }
 
 }

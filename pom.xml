@@ -36,6 +36,9 @@
         <springfox.swagger.version>3.0.0</springfox.swagger.version>
         <swagger.core.jakarta.version>2.2.7</swagger.core.jakarta.version>
         <jackson.nullable.version>0.2.6</jackson.nullable.version>
+        <mockito.version>5.4.0</mockito.version>
+        <h2.version>2.2.220</h2.version>
+        <flyway.version>9.19.4</flyway.version>
     </properties>
 
     <dependencies>
@@ -95,6 +98,20 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${flyway.version}</version>
+        </dependency>
 
         <!-- testing -->
         <dependency>
@@ -137,6 +154,12 @@
             <groupId>org.contextmapper</groupId>
             <artifactId>context-mapper-archunit-extension</artifactId>
             <version>${contextmapper.archunit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

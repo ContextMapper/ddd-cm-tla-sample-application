@@ -1,0 +1,16 @@
+INSERT INTO three_letter_abbreviation (name, meaning, alternative_meanings, url, status)
+VALUES ('ADR',
+        'Architectural Decision Record',
+        NULL,
+        NULL,
+        'ACCEPTED'),
+       ('ASR',
+        'Architecturally Significant Requirement',
+        NULL,
+        NULL,
+        'ACCEPTED'),
+       ('CSC',
+        'Client/Server Cut',
+        NULL,
+        NULL,
+        'ACCEPTED');
