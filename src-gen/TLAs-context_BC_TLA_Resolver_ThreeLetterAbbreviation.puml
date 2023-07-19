@@ -1,0 +1,31 @@
+@startuml
+
+skinparam componentStyle uml2
+
+package "'ThreeLetterAbbreviation' Aggregate" <<Rectangle>> {
+	class ThreeLetterAbbreviation <<(A,#fffab8) Aggregate Root>> {
+		String meaning
+		Set<String> alternativeMeanings
+		String link
+		Abbreviation name
+		TLAState status
+		void ThreeLetterAbbreviation()
+		void accept()
+		void reject()
+		void archive()
+	}
+	class Abbreviation <<(V,DarkSeaGreen) Value Object>> {
+		String name
+	}
+	enum TLAState {
+		PROPOSED
+		ACCEPTED
+		DECLINED
+		ARCHIVED
+	}
+}
+ThreeLetterAbbreviation --> Abbreviation : name
+ThreeLetterAbbreviation --> TLAState : status
+
+
+@enduml

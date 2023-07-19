@@ -5,8 +5,6 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 == Building Block View
 
-plantuml::{diagramsdir}/TLAs-context_BC_TLAs_Context.puml[png]
-
 
 === Whitebox Overall System
 

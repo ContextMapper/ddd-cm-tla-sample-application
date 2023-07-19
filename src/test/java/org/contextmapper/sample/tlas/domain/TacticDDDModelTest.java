@@ -6,7 +6,7 @@ class TacticDDDModelTest extends AbstractTacticArchUnitTest {
 
     @Override
     protected String getBoundedContextName() {
-        return "TLAs_Context";
+        return "TLA_Resolver";
     }
 
     @Override

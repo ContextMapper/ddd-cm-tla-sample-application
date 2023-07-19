@@ -1,0 +1,20 @@
+@startuml
+
+skinparam componentStyle uml2
+
+ACCEPTED : 
+ARCHIVED : 
+PROPOSED : 
+[*] --> PROPOSED : ThreeLetterAbbreviation
+PROPOSED --> ACCEPTED : accept
+PROPOSED --> ARCHIVED : reject
+ACCEPTED --> ARCHIVED : archive
+PROPOSED --> ARCHIVED : archive
+ARCHIVED --> [*]
+
+
+legend top center
+  ThreeLetterAbbreviation Aggregate Lifecycle
+endlegend
+
+@enduml

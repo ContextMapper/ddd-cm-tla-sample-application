@@ -1,0 +1,49 @@
+ifndef::imagesdir[:imagesdir: ../images]
+
+**Disclaimer**
+
+This documentation and the implementation of the sample app is always work in progress and by no means complete. We
+continuously evolve it and use the repo for illustrating different approaches around DDD and Context Mapper.
+
+[[section-introduction-and-goals]]
+== Introduction and Goals
+
+This _DDD and Context Mapper Sample Application_ aims to illustrate how to:
+
+* Verify domain implementation against a Context Mapper model (tactic DDD) using the Context Mapper ArcUnit extension.
+** We use jMolecules annotations to assign DDD patterns to the Java classes.
+* Use Context Mapper generator outputs (for example PlantUML diagrams) in your architecture documentation.
+* Implement an application using the tactic DDD patterns and Onion Architecture (just one example; others might do it differently).
+
+In order to provide such a sample application we needed a domain. We decided for something that is very simple, as this serves
+our goals (giving an example for the above points and use the application in teaching/workshops) best.
+
+*Note:* We are aware that the sample domain (three letter abbreviations) would most likely too simple in a real world scenario
+to justify the application of DDD. For such a simple thing, you would probably not need DDD.
+
+The idea of the sample: An application that can resolve and manage three letter abbreviations and their meanings. Users can for example integrate it
+in their tool-chain to automatically generate list of abbreviations in their documents.
+
+=== Requirements Overview
+
+The main idea of the application is to offer a TLA (three letter abbreviation) resolver via a RESTful HTTP API. Users can resolve TLAs meanings
+by using the API. Additionally, users shall be able to post new TLAs. Those are then reviewed and made public by power users.
+
+The following use case diagram illustrates the main features:
+
+plantuml::{diagramsdir}/TLAs-context_UseCases.puml[png]
+
+=== Quality Goals
+
+TBD
+
+=== Stakeholders
+
+[options="header",cols="1,2,2"]
+|===
+|Role/Name|Contact|Expectations
+| Context Mapper Project Team | stefan.kapferer@ost.ch | Have an example for teaching purposes.
+| Context Mapper Users | | Find an example that shows how Context Mapper can be integrated into a project.
+|===
+
+to be continued ...

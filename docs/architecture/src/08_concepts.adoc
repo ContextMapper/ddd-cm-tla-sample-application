@@ -1,0 +1,13 @@
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-concepts]]
+== Concepts
+
+=== Domain Model
+
+plantuml::{diagramsdir}/TLAs-context_BC_TLA_Resolver.puml[png]
+
+
+=== TLA States
+
+plantuml::{diagramsdir}/TLAs-context_BC_TLA_Resolver_ThreeLetterAbbreviation_StateDiagram.puml[png]

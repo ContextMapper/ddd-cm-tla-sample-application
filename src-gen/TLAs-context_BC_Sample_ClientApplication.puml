@@ -1,0 +1,8 @@
+@startuml
+
+skinparam componentStyle uml2
+
+note "Sorry, we cannot generate a class diagram for this Bounded Context. There are no Aggregates or none of the Aggregates contain any domain objects (entities, value objects or domain events)." as EmptyDiagramError
+
+
+@enduml

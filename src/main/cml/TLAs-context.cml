@@ -1,5 +1,15 @@
+ContextMap ExamplaryMap {
+    contains TLA_Resolver
+    contains Sample_ClientApplication
 
-BoundedContext TLAs_Context {
+    TLA_Resolver [OHS,PL]-> Sample_ClientApplication {
+        exposedAggregates ThreeLetterAbbreviation
+        implementationTechnology "RESTful HTTP"
+    }
+}
+
+
+BoundedContext TLA_Resolver {
 
     Aggregate ThreeLetterAbbreviation {
         Entity ThreeLetterAbbreviation {
@@ -10,11 +20,17 @@ BoundedContext TLAs_Context {
             String link;
             - TLAState status;
 
+            def ThreeLetterAbbreviation() : write [ -> PROPOSED ];
+            def accept() : write [ PROPOSED -> ACCEPTED ];
+            def reject() : write [ PROPOSED -> ARCHIVED* ];
+            def archive() : write [ ACCEPTED, PROPOSED -> ARCHIVED* ];
+
             Repository ThreeLetterAbbreviationRepository {
                 @ThreeLetterAbbreviation save(@ThreeLetterAbbreviation tla);
                 Optional<@ThreeLetterAbbreviation> findByName(@Abbreviation name);
                 List<@ThreeLetterAbbreviation> findAll();
             }
+
         }
 
         ValueObject Abbreviation {
@@ -28,4 +44,38 @@ BoundedContext TLAs_Context {
         }
     }
 
+}
+
+BoundedContext Sample_ClientApplication {
+
+}
+
+UseCase UC01_Resolve_TLA {
+    actor "TLA User"
+    benefit "can lookup meanings of TLAs"
+}
+
+UseCase UC02_Propose_New_TLA {
+    actor "TLA User"
+    benefit "can propose new/missing TLA"
+}
+
+UseCase UC03_Accept_Proposed_TLA {
+    actor "TLA Manager"
+    benefit "can accept proposed TLAs and make them public"
+}
+
+UseCase UC04_Archive_TLA {
+    actor "TLA Manager"
+    benefit "can archive a TLA so that it is no longer accessible"
+}
+
+UseCase UC05_Propose_Alternative_Meaning_For_TLA {
+    actor "TLA User"
+    benefit "propose an alternative meaning that the system does not know yet"
+}
+
+UseCase UC06_Report_Mistake {
+    actor "TLA User"
+    benefit "report a mistake: wrong meaning of a TLA"
 }

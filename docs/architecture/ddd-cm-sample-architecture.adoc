@@ -6,10 +6,10 @@
 // configure EN settings for asciidoc
 include::src/config.adoc[]
 
-= image:arc42-logo.png[arc42] Template
-:revnumber: 8.2 EN
-:revdate: January 2023
-:revremark: (based upon AsciiDoc version)
+= image:contextmapper-logo.png[Context Mapper] TLA Sample App
+:revnumber: 0.1 EN
+:revdate: July 2023
+:revremark: Stefan Kapferer
 // toc-title definition MUST follow document title without blank line!
 :toc-title: Table of Contents
 

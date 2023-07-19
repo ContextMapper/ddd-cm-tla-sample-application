@@ -1,0 +1,14 @@
+@startuml
+
+skinparam componentStyle uml2
+
+component [TLA_Resolver]
+component [Sample_ClientApplication]
+
+interface "RESTful HTTP" as Sample_ClientApplication_to_TLA_Resolver
+[TLA_Resolver] --> Sample_ClientApplication_to_TLA_Resolver : OPEN_HOST_SERVICE, PUBLISHED_LANGUAGE
+Sample_ClientApplication_to_TLA_Resolver <.. [Sample_ClientApplication] : use Aggregate ThreeLetterAbbreviation 
+
+
+
+@enduml
