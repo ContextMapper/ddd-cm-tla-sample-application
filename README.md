@@ -6,7 +6,7 @@ This sample application aims to illustrate how to ...
 
  * ... validate a Domain-driven Design (DDD) model implementation (tactic, code) against a Context Mapper model using 
    our [ArchUnit extension](https://github.com/ContextMapper/context-mapper-archunit-extension).
- * ... use generated diagrams of Context Mapper inside your documentation (in this case the Arch42 document).
+ * ... use generated diagrams of Context Mapper inside your documentation (in this case the arc42 document).
  * ... implement an application using tactic DDD patterns and Onion Architecture (just an example; we are not 
    claiming that this is "the way" at all).
 
@@ -53,6 +53,9 @@ To run the application from the command line, use the following command:
 To run the application within your chosen IDE, run the `main` method in the 
 `org.contextmapper.sample.tlas.infrastructure.spring.application.TlaApplication` class.
 
+_Note:_ Run the Maven build at least once before you import the project into your IDE (Open API generator needs to
+generate the controllers and DTOs).
+
 ## arc42 Documentation
 With this sample app we demonstrate how you can use generated diagrams by Context Mapper in your documentation. This
 repo contains an arc42 document written in AsciiDoc. The Maven build automatically generates the documentation as a PDF
@@ -62,8 +65,8 @@ The GitHub Actions workflow automatically deploys the documentation as a GitHub 
 documentation here: TODO (link; as soon as repo public)
 
 ## Endpoints
-Currently, there is only one first endpoint implemented to get all TLAs. The API specification can be found
-[here](./blob/master/src/main/resources/api.yml)
+Currently, there are two endpoints implemented. One to get all TLAs and another one to get a single TLA by name. 
+The API specification can be found [here](./blob/master/src/main/resources/api.yml)
 
 ### Get all TLAs
 ```bash
@@ -74,21 +77,40 @@ curl  http://localhost:8080/api/v1/tlas
 [
    {
       "name":"TLA",
-      "meaning":"Three Letter Abbreviation"
+      "meaning":"Three Letter Abbreviation",
+      "alternativeMeanings":[
+         "Three Letter Acronym"
+      ]
    },
    {
       "name":"ADR",
-      "meaning":"Architectural Decision Record"
+      "meaning":"Architectural Decision Record",
+      "alternativeMeanings":[]
    },
    {
       "name":"ASR",
-      "meaning":"Architecturally Significant Requirement"
+      "meaning":"Architecturally Significant Requirement",
+      "alternativeMeanings":[]
    },
    {
       "name":"CSC",
-      "meaning":"Client/Server Cut"
+      "meaning":"Client/Server Cut",
+      "alternativeMeanings":[]
    }
 ]
+```
+
+### Get single TLA by Name (ID)
+```bash
+curl  http://localhost:8080/api/v1/tlas/ADR
+```
+
+```json
+{
+   "name":"ADR",
+   "meaning":"Architectural Decision Record",
+   "alternativeMeanings":[]
+}
 ```
 
 ## Contributing
