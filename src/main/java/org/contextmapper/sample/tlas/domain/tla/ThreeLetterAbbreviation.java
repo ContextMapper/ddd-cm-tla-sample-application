@@ -6,10 +6,7 @@ import org.jmolecules.ddd.annotation.Entity;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static org.contextmapper.sample.tlas.domain.tla.TLAStatus.*;
@@ -121,6 +118,11 @@ public class ThreeLetterAbbreviation {
 
         public TLABuilder withAlternativeMeaning(final String alternativeMeaning) {
             this.alternativeMeanings.add(alternativeMeaning);
+            return this;
+        }
+
+        public TLABuilder withAlternativeMeanings(final List<String> alternativeMeanings) {
+            this.alternativeMeanings.addAll(alternativeMeanings);
             return this;
         }
 

@@ -1,7 +1,7 @@
 INSERT INTO three_letter_abbreviation (name, meaning, alternative_meanings, url, status)
 VALUES ('TLA',
         'Three Letter Abbreviation',
-        NULL,
+        'Three Letter Acronym',
         NULL,
         'ACCEPTED'),
        ('ADR',

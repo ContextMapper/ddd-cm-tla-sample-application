@@ -17,8 +17,9 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class TlaApiDelegateImplTest {
 
-    private static final String TEST_TLA = "QAS";
-    private static final String TEST_MEANING = "Quality Attribute Scenario";
+    private static final String TEST_TLA = "TLA";
+    private static final String TEST_MEANING = "Three Letter Abbreviation";
+    private static final String TEST_ALTERNATIVE_MEANING = "Three Letter Acronym";
 
     @Mock
     private TlaApplicationService applicationService;
@@ -32,6 +33,7 @@ class TlaApiDelegateImplTest {
         when(applicationService.findAllTLAs()).thenReturn(List.of(
                 new ThreeLetterAbbreviation.TLABuilder(TEST_TLA)
                         .withMeaning(TEST_MEANING)
+                        .withAlternativeMeaning(TEST_ALTERNATIVE_MEANING)
                         .build()
         ));
 
@@ -45,6 +47,8 @@ class TlaApiDelegateImplTest {
         assertThat(tlas.getBody().get(0))
                 .extracting("name", "meaning")
                 .containsExactly(TEST_TLA, TEST_MEANING);
+        assertThat(tlas.getBody().get(0).getAlternativeMeanings())
+                .contains(TEST_ALTERNATIVE_MEANING);
     }
 
 }

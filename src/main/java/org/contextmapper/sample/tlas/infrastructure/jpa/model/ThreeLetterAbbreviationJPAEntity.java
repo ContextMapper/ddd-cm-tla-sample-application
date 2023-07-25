@@ -1,5 +1,6 @@
 package org.contextmapper.sample.tlas.infrastructure.jpa.model;
 
+import com.google.common.collect.Lists;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -52,6 +53,14 @@ public class ThreeLetterAbbreviationJPAEntity {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public List<String> getAlternativeMeanings() {
+        return alternativeMeanings;
+    }
+
+    public void setAlternativeMeanings(List<String> alternativeMeanings) {
+        this.alternativeMeanings = Lists.newArrayList(alternativeMeanings);
     }
 
 }

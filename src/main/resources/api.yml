@@ -37,5 +37,12 @@ components:
       properties:
         name:
           type: string
+          example: TLA
         meaning:
           type: string
+          example: Three Letter Abbreviation
+        alternativeMeanings:
+          type: array
+          example: Three Letter Acronym
+          items:
+            type: string

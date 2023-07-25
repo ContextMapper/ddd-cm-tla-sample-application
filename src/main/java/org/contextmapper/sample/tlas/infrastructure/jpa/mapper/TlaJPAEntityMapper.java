@@ -11,6 +11,7 @@ public class TlaJPAEntityMapper {
     public static ThreeLetterAbbreviation toDomainEntity(final ThreeLetterAbbreviationJPAEntity jpaEntity) {
         return new TLABuilder(jpaEntity.getName())
                 .withMeaning(jpaEntity.getMeaning())
+                .withAlternativeMeanings(jpaEntity.getAlternativeMeanings())
                 .withLink(jpaEntity.getUrl())
                 .withStatus(valueOf(jpaEntity.getStatus()))
                 .build();
