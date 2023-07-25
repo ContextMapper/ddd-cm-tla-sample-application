@@ -54,7 +54,7 @@ To run the application within your chosen IDE, run the `main` method in the
 `org.contextmapper.sample.tlas.infrastructure.spring.application.TlaApplication` class.
 
 _Note:_ Run the Maven build at least once before you import the project into your IDE (Open API generator needs to
-generate the controllers and DTOs).
+generate the controllers and DTOs). You can find the generated sources (Open API) under `target/generated-sources/openapi/src/main/java`.
 
 ## arc42 Documentation
 With this sample app we demonstrate how you can use generated diagrams by Context Mapper in your documentation. This
