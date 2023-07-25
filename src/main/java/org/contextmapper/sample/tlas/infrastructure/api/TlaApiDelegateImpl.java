@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.contextmapper.sample.tlas.infrastructure.api.mapper.TlaApiDTOMapper.tlaToDto;
+
 @Component
 public class TlaApiDelegateImpl implements TlasApiDelegate {
 
@@ -25,4 +27,8 @@ public class TlaApiDelegateImpl implements TlasApiDelegate {
                 .collect(Collectors.toList()));
     }
 
+    @Override
+    public ResponseEntity<TLADto> getTLAByName(final String name) {
+        return ResponseEntity.ok(tlaToDto(applicationService.getTLAByName(name)));
+    }
 }

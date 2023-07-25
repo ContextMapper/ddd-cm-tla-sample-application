@@ -27,6 +27,29 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/TLADto'
+  /tlas/{name}:
+    get:
+      summary: Get a TLA by its short name
+      operationId: getTLAByName
+      parameters:
+        - name: name
+          in: path
+          description: ID/name of TLA to return
+          required: true
+          example: TLA
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TLADto'
+        '400':
+          description: Invalid TLA name given
+        '404':
+          description: TLA with given name not found
 components:
   schemas:
     TLADto:

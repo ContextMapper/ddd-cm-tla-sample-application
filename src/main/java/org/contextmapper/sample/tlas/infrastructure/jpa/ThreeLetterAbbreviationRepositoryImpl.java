@@ -10,7 +10,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
+import static java.util.Optional.empty;
+import static java.util.Optional.of;
+import static java.util.stream.Collectors.toList;
+import static org.contextmapper.sample.tlas.infrastructure.jpa.mapper.TlaJPAEntityMapper.toDomainEntity;
 
 @Repository
 public class ThreeLetterAbbreviationRepositoryImpl implements ThreeLetterAbbreviationRepository {
@@ -28,13 +32,16 @@ public class ThreeLetterAbbreviationRepositoryImpl implements ThreeLetterAbbrevi
 
     @Override
     public Optional<ThreeLetterAbbreviation> findByName(final Abbreviation name) {
-        throw new NotImplementedException();
+        var optionalTLA = jpaInternalRepo.findById(name.toString());
+        if (optionalTLA.isPresent())
+            return of(toDomainEntity(optionalTLA.get()));
+        return empty();
     }
 
     @Override
     public List<ThreeLetterAbbreviation> findAll() {
         return jpaInternalRepo.findAll().stream()
                 .map(TlaJPAEntityMapper::toDomainEntity)
-                .collect(Collectors.toList());
+                .collect(toList());
     }
 }

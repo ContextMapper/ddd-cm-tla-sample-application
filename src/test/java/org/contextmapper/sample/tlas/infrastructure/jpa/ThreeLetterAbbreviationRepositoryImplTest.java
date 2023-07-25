@@ -1,5 +1,6 @@
 package org.contextmapper.sample.tlas.infrastructure.jpa;
 
+import org.contextmapper.sample.tlas.domain.tla.Abbreviation;
 import org.contextmapper.sample.tlas.domain.tla.TLAStatus;
 import org.contextmapper.sample.tlas.infrastructure.jpa.internal_repos.JpaThreeLetterAbbreviationRepository;
 import org.contextmapper.sample.tlas.infrastructure.jpa.model.ThreeLetterAbbreviationJPAEntity;
@@ -10,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.contextmapper.sample.tlas.domain.tla.TLAStatus.ACCEPTED;
@@ -52,6 +54,41 @@ class ThreeLetterAbbreviationRepositoryImplTest {
         assertThat(tlas.get(0).getAlternativeMeanings())
                 .hasSize(2)
                 .contains(TEST_ALTERNATIVE_MEANING_1, TEST_ALTERNATIVE_MEANING_2);
+    }
+
+    @Test
+    void canFindByName() {
+        // given
+        var shortName = new Abbreviation(TEST_TLA);
+        when(jpaInternalRepo.findById(TEST_TLA)).thenReturn(
+                Optional.of(createTestTLAEntity())
+        );
+
+        // when
+        var tla = testee.findByName(shortName);
+
+        // then
+        verify(jpaInternalRepo, times(1)).findById(TEST_TLA);
+        assertThat(tla)
+                .isNotNull()
+                .isNotEmpty();
+        assertThat(tla.get())
+                .extracting("name.name", "meaning", "status", "link")
+                .containsExactly(TEST_TLA, TEST_MEANING, ACCEPTED, TEST_LINK);
+    }
+
+    @Test
+    void canReturnEmptyOptionalIfNameNotFound() {
+        // given
+        when(jpaInternalRepo.findById(anyString())).thenReturn(Optional.empty());
+
+        // when
+        var tla = testee.findByName(new Abbreviation(TEST_TLA));
+
+        // then
+        assertThat(tla)
+                .isNotNull()
+                .isEmpty();
     }
 
     private ThreeLetterAbbreviationJPAEntity createTestTLAEntity() {

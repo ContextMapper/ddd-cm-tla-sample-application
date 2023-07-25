@@ -51,4 +51,27 @@ class TlaApiDelegateImplTest {
                 .contains(TEST_ALTERNATIVE_MEANING);
     }
 
+    @Test
+    void canGetTLAByName() {
+        // given
+        when(applicationService.getTLAByName(TEST_TLA)).thenReturn(
+                new ThreeLetterAbbreviation.TLABuilder(TEST_TLA)
+                        .withMeaning(TEST_MEANING)
+                        .withAlternativeMeaning(TEST_ALTERNATIVE_MEANING)
+                        .build()
+        );
+
+        // when
+        var tla = testee.getTLAByName(TEST_TLA);
+
+        // then
+        verify(applicationService, times(1)).getTLAByName(TEST_TLA);
+        assertThat(tla.getBody())
+                .isNotNull()
+                .extracting("name", "meaning")
+                .containsExactly(TEST_TLA, TEST_MEANING);
+        assertThat(tla.getBody().getAlternativeMeanings())
+                .contains(TEST_ALTERNATIVE_MEANING);
+    }
+
 }
