@@ -5,13 +5,13 @@ import org.contextmapper.archunit.AbstractTacticArchUnitTest;
 class TacticDDDModelTest extends AbstractTacticArchUnitTest {
 
     @Override
-    protected String getBoundedContextName() {
-        return "TLA_Resolver";
+    protected String getCMLFilePath() {
+        return "src/main/cml/TLAs-context.cml";
     }
 
     @Override
-    protected String getCMLFilePath() {
-        return "src/main/cml/TLAs-context.cml";
+    protected String getBoundedContextName() {
+        return "TLA_Resolver";
     }
 
     @Override
