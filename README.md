@@ -11,7 +11,9 @@ This sample application aims to illustrate how to ...
    claiming that this is "the way" at all).
 
 The idea of the application is to provide a RESTful HTTP API that allows users to lookup meanings of Three Letter
-Abbreviations (TLAs). The credit for the idea goes to [socadk](https://github.com/socadk)! Thanks!
+Abbreviations (TLAs)[^1]. The credit for the idea goes to [socadk](https://github.com/socadk)! Thanks!
+
+[^1]: TLA: "Three Letter Abbreviation" or also "Three Letter Acronym".
 
 The main features are:
 

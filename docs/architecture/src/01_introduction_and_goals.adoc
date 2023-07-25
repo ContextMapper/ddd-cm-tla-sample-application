@@ -26,8 +26,9 @@ in their tool-chain to automatically generate list of abbreviations in their doc
 
 === Requirements Overview
 
-The main idea of the application is to offer a TLA (three letter abbreviation) resolver via a RESTful HTTP API. Users can resolve TLAs meanings
-by using the API. Additionally, users shall be able to post new TLAs. Those are then reviewed and made public by power users.
+The main idea of the application is to offer a TLA (three letter abbreviation)footnote:[TLA: 'Three Letter Abbreviation' or also 'Three Letter Acronym']
+resolver via a RESTful HTTP API. Users can resolve TLAs meanings by using the API. Additionally, users shall be able to
+post new TLAs. Those are then reviewed and made public by power users.
 
 The following use case diagram illustrates the main features:
 
