@@ -53,20 +53,18 @@ To run the application from the command line, use the following command:
 To run the application within your chosen IDE, run the `main` method in the 
 `org.contextmapper.sample.tlas.infrastructure.spring.application.TlaApplication` class.
 
+## API-First
+We follow the [API-first approach](https://swagger.io/resources/articles/adopting-an-api-first-approach/) and generate
+the controllers and DTOs out of an Open API specification.
+
+The API specification can be found [here](https://github.com/ContextMapper/ddd-cm-tla-sample-application/blob/master/src/main/resources/api.yml).
+(`src/main/resources/api.yml`)
+
 _Note:_ Run the Maven build at least once before you import the project into your IDE (Open API generator needs to
 generate the controllers and DTOs). You can find the generated sources (Open API) under `target/generated-sources/openapi/src/main/java`.
 
-## arc42 Documentation
-With this sample app we demonstrate how you can use generated diagrams by Context Mapper in your documentation. This
-repo contains an arc42 document written in AsciiDoc. The Maven build automatically generates the documentation as a PDF
-and in HTML.
-
-The GitHub Actions workflow automatically deploys the documentation as a GitHub page. You can find the deployed 
-documentation here: TODO (link; as soon as repo public)
-
 ## Endpoints
-Currently, there are two endpoints implemented. One to get all TLAs and another one to get a single TLA by name. 
-The API specification can be found [here](https://github.com/ContextMapper/ddd-cm-tla-sample-application/blob/master/src/main/resources/api.yml).
+Currently, there are two endpoints implemented. One to get all TLAs and another one to get a single TLA by name.
 
 ### Get all TLAs
 ```bash
@@ -112,6 +110,14 @@ curl  http://localhost:8080/api/v1/tlas/ADR
    "alternativeMeanings":[]
 }
 ```
+
+## arc42 Documentation
+With this sample app we demonstrate how you can use generated diagrams by Context Mapper in your documentation. This
+repo contains an arc42 document written in AsciiDoc. The Maven build automatically generates the documentation as a PDF
+and in HTML.
+
+The GitHub Actions workflow automatically deploys the documentation as a GitHub page. You can find the deployed 
+documentation here: TODO (link; as soon as repo public)
 
 ## Contributing
 Contribution is always welcome! Here are some ways how you can contribute:
