@@ -24,6 +24,6 @@ jobs:
     - name: Upload Architecture Documentation
       uses: actions/upload-artifact@v3
       with:
-        name: arch42-doc
+        name: arc42-doc
         path: |
           target/generated-docs/ddd-cm-sample-architecture.pdf
