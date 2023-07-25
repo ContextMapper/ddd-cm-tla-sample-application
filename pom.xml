@@ -312,7 +312,7 @@
                         </goals>
                         <configuration>
                             <inputSpec>
-                                ${project.basedir}/src/main/resources/api.yml
+                                ${project.basedir}/src/main/resources/tla-web-api.yml
                             </inputSpec>
                             <generatorName>spring</generatorName>
                             <library>spring-boot</library>

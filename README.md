@@ -57,8 +57,8 @@ To run the application within your chosen IDE, run the `main` method in the
 We follow the [API-first approach](https://swagger.io/resources/articles/adopting-an-api-first-approach/) and generate
 the controllers and DTOs out of an Open API specification.
 
-The API specification can be found [here](https://github.com/ContextMapper/ddd-cm-tla-sample-application/blob/master/src/main/resources/api.yml).
-(`src/main/resources/api.yml`)
+The API specification can be found [here](https://github.com/ContextMapper/ddd-cm-tla-sample-application/blob/master/src/main/resources/tla-web-api.yml).
+(`src/main/resources/tla-web-api.yml`)
 
 _Note:_ Run the Maven build at least once before you import the project into your IDE (Open API generator needs to
 generate the controllers and DTOs). You can find the generated sources (Open API) under `target/generated-sources/openapi/src/main/java`.
