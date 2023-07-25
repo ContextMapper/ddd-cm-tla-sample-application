@@ -66,7 +66,7 @@ documentation here: TODO (link; as soon as repo public)
 
 ## Endpoints
 Currently, there are two endpoints implemented. One to get all TLAs and another one to get a single TLA by name. 
-The API specification can be found [here](./blob/master/src/main/resources/api.yml)
+The API specification can be found [here](https://github.com/ContextMapper/ddd-cm-tla-sample-application/blob/master/src/main/resources/api.yml).
 
 ### Get all TLAs
 ```bash
