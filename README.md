@@ -135,7 +135,7 @@ access; infrastructure).
 _Note:_ For good reasons, especially to stick with the architectural style, we talk about _rings_ and not _layers_.
 
 ### Markdown Any Decision Records (MADR)
-We use MADRs to document our architectural decisions. You can find them [here]() (`docs/madr`).
+We use MADRs to document our architectural decisions. You can find them [here](https://github.com/ContextMapper/ddd-cm-tla-sample-application/tree/master/docs/madr) (`docs/madr`).
 
 ### arc42 Documentation
 With this sample app we demonstrate how you can use generated diagrams by Context Mapper in your documentation. This
