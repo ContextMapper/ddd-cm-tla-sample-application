@@ -18,6 +18,12 @@ package org.contextmapper.sample.tlas.domain;
 
 import org.contextmapper.archunit.AbstractTacticArchUnitTest;
 
+/**
+ * This ArchUnit test uses our Context Mapper Extension to verify whether the code is in sync with the
+ * Context Mapper domain model in TLAs-context.cml.
+ *
+ * ArchUnit extension documentation: https://github.com/ContextMapper/context-mapper-archunit-extension
+ */
 class TacticDDDModelTest extends AbstractTacticArchUnitTest {
 
     @Override
