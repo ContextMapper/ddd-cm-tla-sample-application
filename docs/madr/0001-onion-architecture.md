@@ -27,9 +27,10 @@ of the domain (logic) should not use libraries and frameworks; and it should als
 infrastructure code. In the classical layered architecture the business logic layer (which we would rename to _domain layer_
 when implementing DDD) depends on the data access layer (which is obviously not free from technology).
 
-So, we would end up with something like this: (Image Source: [red book](https://www.pearson.de/implementing-domain-driven-design-9780321834577))
+So, we would end up with something like this:
 
 ![The traditional Layers Architecture in which DDD is applied](./graphics/0001/layered_architecture_1.png)
+<br>(Image Source: [red book](https://www.pearson.de/implementing-domain-driven-design-9780321834577))
 
 Note that Vaughn Vernon already renamed the classical _data access layer_ to _infrastructure layer_ here.
 
@@ -39,7 +40,7 @@ we can achieve to put the _infrastructure layer_ to the top:
 
 ![The possible Layers when the Dependency Inversion Principle is used. We move the Infrastructure Layer above all others, 
 enabling it to implement interfaces for all Layers below.](./graphics/0001/layered_architecture_2.png)
-(Image Source: [red book](https://www.pearson.de/implementing-domain-driven-design-9780321834577))
+<br>(Image Source: [red book](https://www.pearson.de/implementing-domain-driven-design-9780321834577))
 
 But what do we have here now? As Vaughn Vernon argues correctly in my point of view is that this no longer layered architecture.
 At least not what people have in mind when we talk about layers. It's also not the layered architecture that students have
@@ -54,10 +55,10 @@ Onion Architecture as well as Hexagonal Architecture (Ports & Adapters) solve th
 outside and the core domain is inside. Dependencies are only allowed from _outside_ towards _inside_.
 
 ![Onion Architecture](./graphics/0001/2008-onion-architecture.png)
-(Image Source: [Onion Architecture (hgraca)](https://herbertograca.com/2017/09/21/onion-architecture/))
+<br>(Image Source: [Onion Architecture (hgraca)](https://herbertograca.com/2017/09/21/onion-architecture/))
 
 ![Hexagonal Architecture](./graphics/0001/hexagonal-architecture.png)
-(Image Source: [DDD, Hexagonal, Onion, Clean, CQRS, … How I put it all together (hgraca)](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/))
+<br>(Image Source: [DDD, Hexagonal, Onion, Clean, CQRS, … How I put it all together (hgraca)](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/))
 
 As we can anticipate from the illustrations above, Hexagonal Architecture seems a bit more complex then the Onion Architecture
 approach. But the Onion architecture already comes with the benefits over layers that we need for implementing DDD.
