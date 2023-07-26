@@ -26,6 +26,11 @@ class OnionArchitectureTest {
 
     private static final String BASE_PACKAGE = "org.contextmapper.sample.tlas";
 
+    /**
+     * Ensures that our code complies with the Onion Architecture.
+     * Checkout our ADR for more information:
+     * https://github.com/ContextMapper/ddd-cm-tla-sample-application/blob/master/docs/madr/0001-onion-architecture.md
+     */
     @Test
     void codeShouldAdhereToOnionArchitecture() {
         onionArchitecture()
