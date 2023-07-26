@@ -14,7 +14,7 @@ BoundedContext TLA_Resolver {
     Aggregate ThreeLetterAbbreviation {
         Entity ThreeLetterAbbreviation {
             aggregateRoot
-            - Abbreviation name;
+            - ShortName name;
             String meaning;
             Set<String> alternativeMeanings;
             String link;
@@ -27,13 +27,13 @@ BoundedContext TLA_Resolver {
 
             Repository ThreeLetterAbbreviationRepository {
                 @ThreeLetterAbbreviation save(@ThreeLetterAbbreviation tla);
-                Optional<@ThreeLetterAbbreviation> findByName(@Abbreviation name);
+                Optional<@ThreeLetterAbbreviation> findByName(@ShortName name);
                 List<@ThreeLetterAbbreviation> findAll();
             }
 
         }
 
-        ValueObject Abbreviation {
+        ValueObject ShortName {
             String name;
         }
 

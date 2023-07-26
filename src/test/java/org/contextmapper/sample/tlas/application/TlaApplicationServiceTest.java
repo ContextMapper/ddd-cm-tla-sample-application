@@ -18,7 +18,7 @@ package org.contextmapper.sample.tlas.application;
 
 import org.contextmapper.sample.tlas.application.exception.TLAShortNameDoesNotExist;
 import org.contextmapper.sample.tlas.application.exception.TLAShortNameNotValid;
-import org.contextmapper.sample.tlas.domain.tla.Abbreviation;
+import org.contextmapper.sample.tlas.domain.tla.ShortName;
 import org.contextmapper.sample.tlas.domain.tla.ThreeLetterAbbreviationRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -68,7 +68,7 @@ class TlaApplicationServiceTest {
     @Test
     void canGetTLAByName() {
         // given
-        var shortName = new Abbreviation(TEST_TLA);
+        var shortName = new ShortName(TEST_TLA);
         when(repository.findByName(shortName)).thenReturn(
                 Optional.of(new TLABuilder(TEST_TLA)
                         .withMeaning(TEST_MEANING)
@@ -94,7 +94,7 @@ class TlaApplicationServiceTest {
         // when, then
         assertThatExceptionOfType(TLAShortNameDoesNotExist.class)
                 .isThrownBy(() -> testee.getTLAByName("NOTEXISTING"));
-        verify(repository, times(1)).findByName(new Abbreviation("NOTEXISTING"));
+        verify(repository, times(1)).findByName(new ShortName("NOTEXISTING"));
     }
 
     @Test

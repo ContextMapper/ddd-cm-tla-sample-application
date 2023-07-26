@@ -51,7 +51,7 @@ class ThreeLetterAbbreviationTest {
         assertThat(tla)
                 .isNotNull()
                 .extracting("name", "meaning", "status")
-                .containsExactly(new Abbreviation((TEST_TLA)), TEST_MEANING, PROPOSED);
+                .containsExactly(new ShortName((TEST_TLA)), TEST_MEANING, PROPOSED);
     }
 
     @Test
@@ -70,7 +70,7 @@ class ThreeLetterAbbreviationTest {
         assertThat(tla)
                 .isNotNull()
                 .extracting("name", "meaning", "status", "link")
-                .containsExactly(new Abbreviation(TEST_TLA), TEST_MEANING, TEST_STATUS, TEST_LINK);
+                .containsExactly(new ShortName(TEST_TLA), TEST_MEANING, TEST_STATUS, TEST_LINK);
         assertThat(tla.getAlternativeMeanings()).contains(TEST_ALTERNATIVE_MEANING_1);
     }
 
@@ -91,7 +91,7 @@ class ThreeLetterAbbreviationTest {
         assertThat(tla)
                 .isNotNull()
                 .extracting("name", "meaning", "status", "link")
-                .containsExactly(new Abbreviation(TEST_TLA), TEST_MEANING, TEST_STATUS, TEST_LINK);
+                .containsExactly(new ShortName(TEST_TLA), TEST_MEANING, TEST_STATUS, TEST_LINK);
         assertThat(tla.getAlternativeMeanings()).contains(TEST_ALTERNATIVE_MEANING_1);
         assertThat(tla.getAlternativeMeanings()).contains(TEST_ALTERNATIVE_MEANING_2);
     }
@@ -99,7 +99,7 @@ class ThreeLetterAbbreviationTest {
     @Test
     void canCreateTLAWithExistingAbbreviationObject() {
         // given
-        var abbr = new Abbreviation(TEST_TLA);
+        var abbr = new ShortName(TEST_TLA);
         var tlaBuilder = new TLABuilder(abbr)
                 .withMeaning(TEST_MEANING);
 

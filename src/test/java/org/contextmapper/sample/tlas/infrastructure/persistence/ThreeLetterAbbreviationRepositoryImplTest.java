@@ -16,7 +16,7 @@
 
 package org.contextmapper.sample.tlas.infrastructure.persistence;
 
-import org.contextmapper.sample.tlas.domain.tla.Abbreviation;
+import org.contextmapper.sample.tlas.domain.tla.ShortName;
 import org.contextmapper.sample.tlas.domain.tla.TLAStatus;
 import org.contextmapper.sample.tlas.infrastructure.persistence.internal_repos.JpaThreeLetterAbbreviationRepository;
 import org.contextmapper.sample.tlas.infrastructure.persistence.model.ThreeLetterAbbreviationJPAEntity;
@@ -75,7 +75,7 @@ class ThreeLetterAbbreviationRepositoryImplTest {
     @Test
     void canFindByName() {
         // given
-        var shortName = new Abbreviation(TEST_TLA);
+        var shortName = new ShortName(TEST_TLA);
         when(jpaInternalRepo.findById(TEST_TLA)).thenReturn(
                 Optional.of(createTestTLAEntity())
         );
@@ -99,7 +99,7 @@ class ThreeLetterAbbreviationRepositoryImplTest {
         when(jpaInternalRepo.findById(anyString())).thenReturn(Optional.empty());
 
         // when
-        var tla = testee.findByName(new Abbreviation(TEST_TLA));
+        var tla = testee.findByName(new ShortName(TEST_TLA));
 
         // then
         assertThat(tla)

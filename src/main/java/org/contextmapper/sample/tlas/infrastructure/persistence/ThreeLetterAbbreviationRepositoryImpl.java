@@ -17,7 +17,7 @@
 package org.contextmapper.sample.tlas.infrastructure.persistence;
 
 import org.apache.commons.lang3.NotImplementedException;
-import org.contextmapper.sample.tlas.domain.tla.Abbreviation;
+import org.contextmapper.sample.tlas.domain.tla.ShortName;
 import org.contextmapper.sample.tlas.domain.tla.ThreeLetterAbbreviation;
 import org.contextmapper.sample.tlas.domain.tla.ThreeLetterAbbreviationRepository;
 import org.contextmapper.sample.tlas.infrastructure.persistence.internal_repos.JpaThreeLetterAbbreviationRepository;
@@ -47,7 +47,7 @@ public class ThreeLetterAbbreviationRepositoryImpl implements ThreeLetterAbbrevi
     }
 
     @Override
-    public Optional<ThreeLetterAbbreviation> findByName(final Abbreviation name) {
+    public Optional<ThreeLetterAbbreviation> findByName(final ShortName name) {
         var optionalTLA = jpaInternalRepo.findById(name.toString());
         if (optionalTLA.isPresent())
             return of(toDomainEntity(optionalTLA.get()));

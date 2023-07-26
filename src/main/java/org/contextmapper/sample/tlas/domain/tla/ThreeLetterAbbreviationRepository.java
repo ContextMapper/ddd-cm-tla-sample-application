@@ -26,7 +26,7 @@ public interface ThreeLetterAbbreviationRepository {
 
     ThreeLetterAbbreviation save(final ThreeLetterAbbreviation tla);
 
-    Optional<ThreeLetterAbbreviation> findByName(final Abbreviation name);
+    Optional<ThreeLetterAbbreviation> findByName(final ShortName name);
 
     List<ThreeLetterAbbreviation> findAll();
 

@@ -23,14 +23,14 @@ import java.util.Objects;
 import static com.google.common.base.Preconditions.checkArgument;
 
 @ValueObject
-public class Abbreviation {
+public class ShortName {
 
     private String name;
 
-    public Abbreviation(final String name) {
-        checkArgument(name != null, "Abbreviation name cannot be null!");
-        checkArgument(!name.isEmpty(), "Abbreviation cannot be empty!");
-        checkArgument(!name.contains(" "), "A single abbreviation cannot contain spaces.");
+    public ShortName(final String name) {
+        checkArgument(name != null, "Short name cannot be null!");
+        checkArgument(!name.isEmpty(), "Short name cannot be empty!");
+        checkArgument(!name.contains(" "), "A single short name cannot contain spaces.");
 
         this.name = name;
     }
@@ -48,7 +48,7 @@ public class Abbreviation {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Abbreviation that = (Abbreviation) o;
+        ShortName that = (ShortName) o;
         return Objects.equals(name, that.name);
     }
 

@@ -31,7 +31,7 @@ import static org.contextmapper.sample.tlas.domain.tla.TLAStatus.*;
 @AggregateRoot
 public class ThreeLetterAbbreviation {
 
-    private final Abbreviation name;
+    private final ShortName name;
     private final String meaning;
     private final Set<String> alternativeMeanings;
     private URL link;
@@ -95,7 +95,7 @@ public class ThreeLetterAbbreviation {
         return meaning;
     }
 
-    public Abbreviation getName() {
+    public ShortName getName() {
         return name;
     }
 
@@ -113,18 +113,18 @@ public class ThreeLetterAbbreviation {
     }
 
     public static class TLABuilder {
-        private final Abbreviation name;
+        private final ShortName name;
         private String meaning;
         private final Set<String> alternativeMeanings = new HashSet<>();
         private String link;
         private TLAStatus status = PROPOSED;
 
-        public TLABuilder(final Abbreviation name) {
+        public TLABuilder(final ShortName name) {
             this.name = name;
         }
 
         public TLABuilder(final String name) {
-            this.name = new Abbreviation(name);
+            this.name = new ShortName(name);
         }
 
         public TLABuilder withMeaning(final String meaning) {

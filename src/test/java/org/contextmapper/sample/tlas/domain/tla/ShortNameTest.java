@@ -23,26 +23,26 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
-class AbbreviationTest {
+class ShortNameTest {
 
     @Test
     void cannotCreateAbbreviationFromNull() {
         assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-            new Abbreviation(null);
+            new ShortName(null);
         });
     }
 
     @Test
     void cannotCreateAbbreviationFromEmptyString() {
         assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-            new Abbreviation("");
+            new ShortName("");
         });
     }
 
     @Test
     void cannotCreateAbbreviationFromMultipleWords() {
         assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-            new Abbreviation("hello world");
+            new ShortName("hello world");
         });
     }
 
@@ -56,7 +56,7 @@ class AbbreviationTest {
     })
     void canCreateAbbreviation(final String value) {
         // when
-        var abbreviation = new Abbreviation(value);
+        var abbreviation = new ShortName(value);
 
         // then
         assertThat(abbreviation)
@@ -71,8 +71,8 @@ class AbbreviationTest {
         var tlaString = "TLA";
 
         // when
-        var firstAbbr = new Abbreviation(tlaString);
-        var secondAbbr = new Abbreviation(tlaString);
+        var firstAbbr = new ShortName(tlaString);
+        var secondAbbr = new ShortName(tlaString);
 
         // then
         assertThat(firstAbbr).isEqualTo(secondAbbr);
