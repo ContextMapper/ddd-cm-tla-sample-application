@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package org.contextmapper.sample.tlas.infrastructure.jpa.model;
+package org.contextmapper.sample.tlas.infrastructure.persistence.model;
 
 import com.google.common.collect.Lists;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import org.contextmapper.sample.tlas.infrastructure.jpa.converters.StringListConverter;
+import org.contextmapper.sample.tlas.infrastructure.persistence.converters.StringListConverter;
 
 import java.util.List;
 

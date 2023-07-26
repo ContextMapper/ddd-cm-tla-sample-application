@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.contextmapper.sample.tlas.infrastructure.api;
+package org.contextmapper.sample.tlas.infrastructure.webapi;
 
 import org.contextmapper.sample.tlas.application.TlaApplicationService;
 import org.contextmapper.sample.tlas.domain.tla.ThreeLetterAbbreviation;

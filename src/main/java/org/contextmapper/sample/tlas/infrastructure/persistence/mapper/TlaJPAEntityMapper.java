@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.contextmapper.sample.tlas.infrastructure.jpa.mapper;
+package org.contextmapper.sample.tlas.infrastructure.persistence.mapper;
 
 import org.contextmapper.sample.tlas.domain.tla.ThreeLetterAbbreviation;
-import org.contextmapper.sample.tlas.infrastructure.jpa.model.ThreeLetterAbbreviationJPAEntity;
+import org.contextmapper.sample.tlas.infrastructure.persistence.model.ThreeLetterAbbreviationJPAEntity;
 
 import static org.contextmapper.sample.tlas.domain.tla.TLAStatus.valueOf;
 import static org.contextmapper.sample.tlas.domain.tla.ThreeLetterAbbreviation.TLABuilder;

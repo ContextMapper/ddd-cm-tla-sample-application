@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.contextmapper.sample.tlas.infrastructure.api.exceptions;
+package org.contextmapper.sample.tlas.infrastructure.webapi.exceptions;
 
 import org.contextmapper.sample.tlas.application.exception.TLAShortNameDoesNotExist;
 import org.contextmapper.sample.tlas.application.exception.TLAShortNameNotValid;

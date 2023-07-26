@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.contextmapper.sample.tlas.infrastructure.api.mapper;
+package org.contextmapper.sample.tlas.infrastructure.webapi.mapper;
 
 import com.google.common.collect.Lists;
 import org.contextmapper.sample.tlas.domain.tla.ThreeLetterAbbreviation;
-import org.contextmapper.sample.tlas.infrastructure.api.model.TLADto;
+import org.contextmapper.sample.tlas.infrastructure.webapi.model.TLADto;
 
 public class TlaApiDTOMapper {
 

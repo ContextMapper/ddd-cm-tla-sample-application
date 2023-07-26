@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package org.contextmapper.sample.tlas.infrastructure.api;
+package org.contextmapper.sample.tlas.infrastructure.webapi;
 
 import org.contextmapper.sample.tlas.application.TlaApplicationService;
-import org.contextmapper.sample.tlas.infrastructure.api.mapper.TlaApiDTOMapper;
-import org.contextmapper.sample.tlas.infrastructure.api.model.TLADto;
+import org.contextmapper.sample.tlas.infrastructure.webapi.mapper.TlaApiDTOMapper;
+import org.contextmapper.sample.tlas.infrastructure.webapi.model.TLADto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.contextmapper.sample.tlas.infrastructure.api.mapper.TlaApiDTOMapper.tlaToDto;
+import static org.contextmapper.sample.tlas.infrastructure.webapi.mapper.TlaApiDTOMapper.tlaToDto;
 
 /**
  * This is the actual implementation of the TlasApiController.

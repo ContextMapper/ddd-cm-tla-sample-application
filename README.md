@@ -51,7 +51,7 @@ To run the application from the command line, use the following command:
  * Graphviz (dot) installed (because we generate Context Maps)
 
 To run the application within your chosen IDE, run the `main` method in the 
-`org.contextmapper.sample.tlas.infrastructure.spring.application.TlaApplication` class.
+`org.contextmapper.sample.tlas.infrastructure.application.TlaApplication` class.
 
 ## API-First
 We follow the [API-first approach](https://swagger.io/resources/articles/adopting-an-api-first-approach/) and generate
@@ -62,6 +62,10 @@ The API specification can be found [here](https://github.com/ContextMapper/ddd-c
 
 _Note:_ Run the Maven build at least once before you import the project into your IDE (Open API generator needs to
 generate the controllers and DTOs). You can find the generated sources (Open API) under `target/generated-sources/openapi/src/main/java`.
+
+_TBD (future work):_ From CML we can also [generate MDSL](https://contextmapper.org/docs/mdsl/) and then [from MDSL an 
+Open API specification](https://microservice-api-patterns.github.io/MDSL-Specification/generators/open-api). In the future
+we could show how to automate this here (_CML -> MDSL -> Open API -> Code_).
 
 ## Endpoints
 Currently, there are two endpoints implemented. One to get all TLAs and another one to get a single TLA by name.
@@ -111,7 +115,29 @@ curl  http://localhost:8080/api/v1/tlas/ADR
 }
 ```
 
-## arc42 Documentation
+## Architecture
+In this sample application we implement/demonstrate tactic Domain-Driven Design (DDD) together with 
+[Onion Architecure](https://herbertograca.com/2017/09/21/onion-architecture/). With an 
+[ArchUnit Test](https://github.com/ContextMapper/ddd-cm-tla-sample-application/blob/master/src/test/java/org/contextmapper/sample/tlas/OnionArchitectureTest.java) 
+we ensure that our code complies with this architectural style and its _rings_ (_domain_, _domain services_, 
+_application services_, _infrastructure_).
+
+If you are not familiar with onion architecture, I recommend the following slides/posts by [cstettler](https://github.com/cstettler):
+(unfortunately in GERMAN only; but the visualizations are nice/helpful anyway)
+
+ * [DDD mit Onion Architecture & Stereotypes](https://www.jug.ch/events/slides/190313_OnionArchitecturesAndStereotypes.pdf) (Slides)
+ * [DDD mit Onion Architecture](https://www.innoq.com/de/blog/ddd-mit-onion-architecture-umsetzen/) (Blogpost)
+
+It's a very nice introduction that also shows why onion, clean, or hexagonal architectures are better suited to implement
+DDD than the classical N-layer architecture (in which originally the domain logic depends on the implementation of data
+access; infrastructure).
+
+_Note:_ For good reasons, especially to stick with the architectural style, we talk about _rings_ and not _layers_.
+
+### Markdown Any Decision Records (MADR)
+We use MADRs to document our architectural decisions. You can find them [here]() (`docs/madr`).
+
+### arc42 Documentation
 With this sample app we demonstrate how you can use generated diagrams by Context Mapper in your documentation. This
 repo contains an arc42 document written in AsciiDoc. The Maven build automatically generates the documentation as a PDF
 and in HTML.

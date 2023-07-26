@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.contextmapper.sample.tlas.infrastructure.jpa.converters;
+package org.contextmapper.sample.tlas.infrastructure.persistence.converters;
 
 import org.junit.jupiter.api.Test;
 

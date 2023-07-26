@@ -16,8 +16,10 @@
 
 package org.contextmapper.sample.tlas;
 
+import com.tngtech.archunit.core.importer.ClassFileImporter;
 import org.junit.jupiter.api.Test;
 
+import static com.tngtech.archunit.core.importer.ImportOption.Predefined.DO_NOT_INCLUDE_TESTS;
 import static com.tngtech.archunit.library.Architectures.onionArchitecture;
 
 class OnionArchitectureTest {
@@ -29,8 +31,14 @@ class OnionArchitectureTest {
         onionArchitecture()
                 .domainModels(BASE_PACKAGE + ".domain..")
                 .applicationServices(BASE_PACKAGE + ".application..")
-                .adapter("restful-api", BASE_PACKAGE + ".infrastructure.api..")
-                .adapter("jpa", BASE_PACKAGE + ".infrastructure.jpa..");
+                .adapter("web-api", BASE_PACKAGE + ".infrastructure.webapi..")
+                .adapter("persistence", BASE_PACKAGE + ".infrastructure.persistence..")
+                .adapter("application", BASE_PACKAGE + ".infrastructure.application..")
+                .ensureAllClassesAreContainedInArchitecture()
+                .withOptionalLayers(true) // no domain services yet
+                .check(new ClassFileImporter()
+                        .withImportOption(DO_NOT_INCLUDE_TESTS)
+                        .importPackages(BASE_PACKAGE));
     }
 
 }

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.contextmapper.sample.tlas.infrastructure.jpa.internal_repos;
+package org.contextmapper.sample.tlas.infrastructure.persistence.internal_repos;
 
-import org.contextmapper.sample.tlas.infrastructure.jpa.model.ThreeLetterAbbreviationJPAEntity;
+import org.contextmapper.sample.tlas.infrastructure.persistence.model.ThreeLetterAbbreviationJPAEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface JpaThreeLetterAbbreviationRepository extends JpaRepository<ThreeLetterAbbreviationJPAEntity, String> {

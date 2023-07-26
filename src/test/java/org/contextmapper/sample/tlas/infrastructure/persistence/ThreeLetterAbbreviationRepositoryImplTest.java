@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.contextmapper.sample.tlas.infrastructure.jpa;
+package org.contextmapper.sample.tlas.infrastructure.persistence;
 
 import org.contextmapper.sample.tlas.domain.tla.Abbreviation;
 import org.contextmapper.sample.tlas.domain.tla.TLAStatus;
-import org.contextmapper.sample.tlas.infrastructure.jpa.internal_repos.JpaThreeLetterAbbreviationRepository;
-import org.contextmapper.sample.tlas.infrastructure.jpa.model.ThreeLetterAbbreviationJPAEntity;
+import org.contextmapper.sample.tlas.infrastructure.persistence.internal_repos.JpaThreeLetterAbbreviationRepository;
+import org.contextmapper.sample.tlas.infrastructure.persistence.model.ThreeLetterAbbreviationJPAEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

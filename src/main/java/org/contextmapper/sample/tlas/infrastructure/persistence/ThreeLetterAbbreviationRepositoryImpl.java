@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package org.contextmapper.sample.tlas.infrastructure.jpa;
+package org.contextmapper.sample.tlas.infrastructure.persistence;
 
 import org.apache.commons.lang3.NotImplementedException;
 import org.contextmapper.sample.tlas.domain.tla.Abbreviation;
 import org.contextmapper.sample.tlas.domain.tla.ThreeLetterAbbreviation;
 import org.contextmapper.sample.tlas.domain.tla.ThreeLetterAbbreviationRepository;
-import org.contextmapper.sample.tlas.infrastructure.jpa.internal_repos.JpaThreeLetterAbbreviationRepository;
-import org.contextmapper.sample.tlas.infrastructure.jpa.mapper.TlaJPAEntityMapper;
+import org.contextmapper.sample.tlas.infrastructure.persistence.internal_repos.JpaThreeLetterAbbreviationRepository;
+import org.contextmapper.sample.tlas.infrastructure.persistence.mapper.TlaJPAEntityMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -30,7 +30,7 @@ import java.util.Optional;
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
 import static java.util.stream.Collectors.toList;
-import static org.contextmapper.sample.tlas.infrastructure.jpa.mapper.TlaJPAEntityMapper.toDomainEntity;
+import static org.contextmapper.sample.tlas.infrastructure.persistence.mapper.TlaJPAEntityMapper.toDomainEntity;
 
 @Repository
 public class ThreeLetterAbbreviationRepositoryImpl implements ThreeLetterAbbreviationRepository {

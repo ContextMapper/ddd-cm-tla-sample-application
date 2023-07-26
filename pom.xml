@@ -316,8 +316,8 @@
                             </inputSpec>
                             <generatorName>spring</generatorName>
                             <library>spring-boot</library>
-                            <apiPackage>org.contextmapper.sample.tlas.infrastructure.api</apiPackage>
-                            <modelPackage>org.contextmapper.sample.tlas.infrastructure.api.model</modelPackage>
+                            <apiPackage>org.contextmapper.sample.tlas.infrastructure.webapi</apiPackage>
+                            <modelPackage>org.contextmapper.sample.tlas.infrastructure.webapi.model</modelPackage>
                             <supportingFilesToGenerate>
                                 ApiUtil.java
                             </supportingFilesToGenerate>
