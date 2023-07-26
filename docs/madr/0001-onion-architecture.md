@@ -60,6 +60,10 @@ outside and the core domain is inside. Dependencies are only allowed from _outsi
 ![Hexagonal Architecture](./graphics/0001/hexagonal-architecture.png)
 <br>(Image Source: [DDD, Hexagonal, Onion, Clean, CQRS, … How I put it all together (hgraca)](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/))
 
+_Personal note of the author:_ What I don't like in the illustration above is that _hgraca_ is again talking about _layers_
+in the Hexagonal Architecture. In the Onion Architecture one typically talks about _rings_. For the Hexagonal Architecture
+I would also prefer another word than _layers_. _Hexagons_ maybe?
+
 As we can anticipate from the illustrations above, Hexagonal Architecture seems a bit more complex then the Onion Architecture
 approach. But the Onion architecture already comes with the benefits over layers that we need for implementing DDD.
 We share this opinion with others as well; for example (GERMAN): [DDD mit Onion Architecture: 3 Gründe, weshalb Onion 
