@@ -4,7 +4,7 @@
 
 This sample application aims to illustrate how to ...
 
- * ... validate a Domain-driven Design (DDD) model implementation (tactic, code) against a  
+ * ... validate a Domain-driven Design (DDD) model implementation (tactic, code) against a
    [Context Mapper](https://contextmapper.org/) model using our 
    [ArchUnit extension](https://github.com/ContextMapper/context-mapper-archunit-extension).
  * ... use generated diagrams of [Context Mapper](https://contextmapper.org/) inside your documentation 
