@@ -27,3 +27,5 @@ jobs:
         name: arc42-doc
         path: |
           target/generated-docs/ddd-cm-sample-architecture.pdf
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
