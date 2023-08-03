@@ -68,7 +68,10 @@ generate the controllers and DTOs). You can find the generated sources (Open API
 
 _TBD (future work):_ From CML we can also [generate MDSL](https://contextmapper.org/docs/mdsl/) and then [from MDSL an 
 Open API specification](https://microservice-api-patterns.github.io/MDSL-Specification/generators/open-api). In the future
-we could show how to automate this here (_CML -> MDSL -> Open API -> Code_).
+we could show how to automate this here (_CML -> MDSL -> Open API -> Code_). However, under 
+[src/main/resources/mdsl](https://github.com/ContextMapper/ddd-cm-tla-sample-application/blob/master/src/main/resources/mdsl)
+we have already written the MDSL example that allows us to generate the Open API specification. To adjust the API via
+MDSL we currently have to generate and replace `src/main/resources/tla-web-api.yml` manually.
 
 ## Endpoints
 Currently, there are two endpoints implemented. One to get all TLAs and another one to get a single TLA by name.

@@ -1,0 +1,36 @@
+API description TLA_ResolverAPI
+usage context PUBLIC_API
+
+data type ThreeLetterAbbreviation { "meaning":D<string>, "alternativeMeanings":D<string>*, "name":D<string> }
+data type ErrorResponse { "type":D<string>, "title":D<string>, "detail":D<string>, "instance":D<string> }
+
+endpoint type ThreeLetterAbbreviationWebAPI
+	exposes
+		operation listTLAs
+			with responsibility RETRIEVAL_OPERATION
+			expecting
+				payload D<void>
+			delivering
+				payload ThreeLetterAbbreviation*
+		operation getTLAByName
+			with responsibility RETRIEVAL_OPERATION
+			expecting
+				payload "name":D<string>
+			delivering
+				payload ThreeLetterAbbreviation 
+			reporting 
+				status invalidName ErrorResponse
+				status notFound ErrorResponse
+
+API provider ThreeLetterAbbreviationWebAPIProvider 
+	offers ThreeLetterAbbreviationWebAPI 
+	at endpoint location "http://localhost:8080/api/v1"
+	via protocol HTTP 
+		binding
+			resource tlas at "/tlas"
+				operation listTLAs to GET
+			resource tla at "/tlas/{name}"
+				operation getTLAByName to GET 
+					element "name" realized as PATH parameter
+				report invalidName realized as 400 with "Invalid TLA name given"
+				report notFound realized as 404 with "TLA with given name not found"

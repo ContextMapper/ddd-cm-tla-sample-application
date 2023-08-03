@@ -1,0 +1,114 @@
+openapi: 3.0.1
+info:
+  title: TLA_ResolverAPI
+  description: 'PUBLIC_API '
+  version: "1.0"
+  x-generated-on: 2023-08-03T13:13:22.033254664
+servers:
+- url: http://localhost:8080/api/v1
+tags:
+- name: ThreeLetterAbbreviationWebAPIProvider-tlas
+  externalDocs:
+    description: ThreeLetterAbbreviationWebAPI contract
+    url: ""
+- name: ThreeLetterAbbreviationWebAPIProvider-tla
+  externalDocs:
+    description: ThreeLetterAbbreviationWebAPI contract
+    url: ""
+paths:
+  /tlas:
+    get:
+      tags:
+      - ThreeLetterAbbreviationWebAPIProvider-tlas
+      summary: listTLAs (read only method)
+      description: '[Retrieval Operation](https://microservice-api-patterns.org/patterns/responsibility/operationResponsibilities/RetrievalOperation.html).'
+      operationId: tlas-listTLAs
+      responses:
+        "200":
+          description: listTLAs successful execution
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ThreeLetterAbbreviation'
+  /tlas/{name}:
+    get:
+      tags:
+      - ThreeLetterAbbreviationWebAPIProvider-tla
+      summary: getTLAByName (read only method)
+      description: '[Retrieval Operation](https://microservice-api-patterns.org/patterns/responsibility/operationResponsibilities/RetrievalOperation.html).'
+      operationId: tla-getTLAByName
+      parameters:
+      - name: name
+        in: path
+        description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+          target="_blank">Data Element</a>
+        required: true
+        schema:
+          type: string
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+      responses:
+        "200":
+          description: getTLAByName successful execution
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThreeLetterAbbreviation'
+        "400":
+          description: Invalid TLA name given
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: TLA with given name not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+components:
+  schemas:
+    ThreeLetterAbbreviation:
+      type: object
+      properties:
+        meaning:
+          type: string
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+        alternativeMeanings:
+          type: array
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+          items:
+            type: string
+        name:
+          type: string
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+    ErrorResponse:
+      type: object
+      properties:
+        type:
+          type: string
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+        title:
+          type: string
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+        detail:
+          type: string
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+        instance:
+          type: string
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
