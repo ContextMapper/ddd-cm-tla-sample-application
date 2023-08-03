@@ -4,14 +4,17 @@
 
 This sample application aims to illustrate how to ...
 
- * ... validate a Domain-driven Design (DDD) model implementation (tactic, code) against a Context Mapper model using 
-   our [ArchUnit extension](https://github.com/ContextMapper/context-mapper-archunit-extension).
- * ... use generated diagrams of Context Mapper inside your documentation (in this case the arc42 document).
- * ... implement an application using tactic DDD patterns and Onion Architecture (just an example; we are not 
-   claiming that this is "the way" at all).
+ * ... validate a Domain-driven Design (DDD) model implementation (tactic, code) against a  
+   [Context Mapper](https://contextmapper.org/) model using our 
+   [ArchUnit extension](https://github.com/ContextMapper/context-mapper-archunit-extension).
+ * ... use generated diagrams of [Context Mapper](https://contextmapper.org/) inside your documentation 
+   (in this case the [arc42](https://www.arc42.de/) document).
+ * ... implement an application using tactic DDD patterns and
+   [Onion Architecture](https://herbertograca.com/2017/09/21/onion-architecture/) (just an example; we are not claiming 
+   that this is "the way" at all).
 
 The idea of the application is to provide a RESTful HTTP API that allows users to lookup meanings of Three Letter
-Abbreviations (TLAs)[^1]. The credit for the idea goes to [socadk](https://github.com/socadk)! Thanks!
+Abbreviations (TLAs)[^1]. The credit for the domain idea goes to [socadk](https://github.com/socadk)! Thanks!
 
 [^1]: TLA: "Three Letter Abbreviation" or also "Three Letter Acronym".
 
@@ -27,14 +30,14 @@ The main features are:
 The application is implemented using the following technology:
 
  * Java 17
- * Spring Boot
- * Open API generator (to generate the controllers and DTOs)
- * jMolecules DDD annotations
+ * [Spring Boot](https://spring.io/projects/spring-boot)
+ * [Open API](https://www.openapis.org/) generator (to generate the controllers and DTOs)
+ * [jMolecules](https://github.com/xmolecules/jmolecules) DDD annotations
  * H2 in-memory database (to store the TLAs)
-   * Flyway for database migration
+   * [Flyway](https://flywaydb.org/) for database migration
 
 ## Getting Started
-You can clone and then build the application with the following Maven command:
+You can clone and then build the application with the following [Maven](https://maven.apache.org/) command:
 
 ```bash
 ./mvnw clean package
@@ -48,7 +51,7 @@ To run the application from the command line, use the following command:
 
 **Preconditions**:
  * Java installed (we use JDK 17)
- * Graphviz (dot) installed (because we generate Context Maps)
+ * [Graphviz (dot)](https://graphviz.org/) installed (because we generate Context Maps)
 
 To run the application within your chosen IDE, run the `main` method in the 
 `org.contextmapper.sample.tlas.infrastructure.application.TlaApplication` class.
@@ -125,22 +128,21 @@ _application services_, _infrastructure_).
 If you are not familiar with onion architecture, I recommend the following slides/posts by [cstettler](https://github.com/cstettler):
 (unfortunately in GERMAN only; but the visualizations are nice/helpful anyway)
 
- * [DDD mit Onion Architecture & Stereotypes](https://www.jug.ch/events/slides/190313_OnionArchitecturesAndStereotypes.pdf) (Slides)
+ * [DDD mit Onion Architecture & Stereotypes](https://www.jug.ch/events/slides/190313_OnionArchitecturesAndStereotypes.pdf) 
+   (Slides)
  * [DDD mit Onion Architecture](https://www.innoq.com/de/blog/ddd-mit-onion-architecture-umsetzen/) (Blogpost)
 
-It's a very nice introduction that also shows why onion, clean, or hexagonal architectures are better suited to implement
-DDD than the classical N-layer architecture (in which originally the domain logic depends on the implementation of data
-access; infrastructure).
-
-_Note:_ For good reasons, especially to stick with the architectural style, we talk about _rings_ and not _layers_.
+_Note:_ To stick with the architectural style and its circular shape, we talk about _rings_ and not _layers_ 
+([AD1: Layering Scheme - Onion Architecture](https://github.com/ContextMapper/ddd-cm-tla-sample-application/blob/master/docs/madr/0001-onion-architecture.md)).
 
 ### Markdown Any Decision Records (MADR)
-We use MADRs to document our architectural decisions. You can find them [here](https://github.com/ContextMapper/ddd-cm-tla-sample-application/tree/master/docs/madr) (`docs/madr`).
+We use MADRs to document our architectural decisions. You can find them 
+[here](https://github.com/ContextMapper/ddd-cm-tla-sample-application/tree/master/docs/madr) (`docs/madr`).
 
 ### arc42 Documentation
 With this sample app we demonstrate how you can use generated diagrams by Context Mapper in your documentation. This
-repo contains an arc42 document written in AsciiDoc. The Maven build automatically generates the documentation as a PDF
-and in HTML.
+repo contains an [arc42](https://www.arc42.de/) document written in AsciiDoc. The Maven build automatically generates 
+the documentation as a PDF and in HTML.
 
 The GitHub Actions workflow automatically deploys the documentation as a GitHub page. You can find the deployed 
 documentation here: TODO (link; as soon as repo public)
@@ -148,8 +150,15 @@ documentation here: TODO (link; as soon as repo public)
 ## Contributing
 Contribution is always welcome! Here are some ways how you can contribute:
 * Create Github issues if you find bugs or just want to give suggestions for improvements.
-* This is an open source project: if you want to code, [create pull requests](https://help.github.com/articles/creating-a-pull-request/) from [forks of this repository](https://help.github.com/articles/fork-a-repo/). Please refer to a Github issue if you contribute this way. In our [wiki](https://github.com/ContextMapper/context-mapper-dsl/wiki/IDE-Setup) you can find out how to build the project and setup the development environment locally.
-* If you want to contribute to our documentation and user guides on our website [https://contextmapper.org/](https://contextmapper.org/), create pull requests from forks of the corresponding page repo [https://github.com/ContextMapper/contextmapper.github.io](https://github.com/ContextMapper/contextmapper.github.io) or create issues [there](https://github.com/ContextMapper/contextmapper.github.io/issues).
+* This is an open source project: if you want to code, 
+  [create pull requests](https://help.github.com/articles/creating-a-pull-request/) from 
+  [forks of this repository](https://help.github.com/articles/fork-a-repo/). Please refer to a Github issue if you 
+  contribute this way. In our [wiki](https://github.com/ContextMapper/context-mapper-dsl/wiki/IDE-Setup) you can find 
+  out how to build the project and setup the development environment locally.
+* If you want to contribute to our documentation and user guides on our website 
+  [https://contextmapper.org/](https://contextmapper.org/), create pull requests from forks of the corresponding page 
+  repo [https://github.com/ContextMapper/contextmapper.github.io](https://github.com/ContextMapper/contextmapper.github.io) 
+  or create issues [there](https://github.com/ContextMapper/contextmapper.github.io/issues).
 
 ## Licence
 Context Mapper is released under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
