@@ -148,7 +148,7 @@ repo contains an [arc42](https://www.arc42.de/) document written in AsciiDoc. Th
 the documentation as a PDF and in HTML.
 
 The GitHub Actions workflow automatically deploys the documentation as a GitHub page. You can find the deployed 
-documentation here: TODO (link; as soon as repo public)
+documentation here: [TLA Sample App - Architecture (arc42)](https://contextmapper.org/ddd-cm-tla-sample-application/architecture)
 
 ## Contributing
 Contribution is always welcome! Here are some ways how you can contribute:
