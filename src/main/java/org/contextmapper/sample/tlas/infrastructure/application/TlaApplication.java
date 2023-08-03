@@ -27,7 +27,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Configuration
 @ComponentScan("org.contextmapper.sample.tlas")
 @EnableJpaRepositories("org.contextmapper.sample.tlas.infrastructure.persistence")
-@EntityScan("org.contextmapper.sample.tlas.infrastructure.jpa")
+@EntityScan("org.contextmapper.sample.tlas.infrastructure.persistence")
 public class TlaApplication {
 
     public static void main(String[] args) {
