@@ -6,3 +6,6 @@ vscode:
   extensions:
     - jebbs.plantuml
     - contextmapper.context-mapper-vscode-extension
+    - vscjava.vscode-java-pack
+    - Pivotal.vscode-boot-dev-pack
+    - asciidoctor.asciidoctor-vscode
