@@ -1,6 +1,6 @@
 ![Context Mapper](https://raw.githubusercontent.com/wiki/ContextMapper/context-mapper-dsl/logo/cm-logo-github-small.png)
 # Three Letter Abbreviations (TLA) Sample Application
-[![master build](https://github.com/ContextMapper/ddd-cm-tla-sample-application/actions/workflows/master.yml/badge.svg)](https://github.com/ContextMapper/ddd-cm-tla-sample-application/actions/workflows/master.yml) [![codecov](https://codecov.io/gh/ContextMapper/ddd-cm-tla-sample-application/branch/master/graph/badge.svg?token=XitqhblwcF)](https://codecov.io/gh/ContextMapper/ddd-cm-tla-sample-application) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![master build](https://github.com/ContextMapper/ddd-cm-tla-sample-application/actions/workflows/master.yml/badge.svg)](https://github.com/ContextMapper/ddd-cm-tla-sample-application/actions/workflows/master.yml) [![codecov](https://codecov.io/gh/ContextMapper/ddd-cm-tla-sample-application/branch/master/graph/badge.svg?token=XitqhblwcF)](https://codecov.io/gh/ContextMapper/ddd-cm-tla-sample-application) [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ContextMapper/ddd-cm-tla-sample-application) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 This sample application aims to illustrate how to ...
 
@@ -35,6 +35,12 @@ The application is implemented using the following technology:
  * [jMolecules](https://github.com/xmolecules/jmolecules) DDD annotations
  * H2 in-memory database (to store the TLAs)
    * [Flyway](https://flywaydb.org/) for database migration
+
+Start exploring the example application in the Gitpod online IDE right now:
+
+<a href="https://gitpod.io/#https://github.com/ContextMapper/ddd-cm-tla-sample-application" style="padding: 10px;">
+    <img src="https://gitpod.io/button/open-in-gitpod.svg" width="150" alt="Push" align="center">
+</a>
 
 ## Getting Started
 You can clone and then build the application with the following [Maven](https://maven.apache.org/) command:
