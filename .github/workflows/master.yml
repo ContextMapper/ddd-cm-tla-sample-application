@@ -96,12 +96,17 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Get Project Version from POM
+        id: project-version
+        uses: CptMokoena/maven-get-version-action@1.0.3
       - name: Build and Push (latest)
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         uses: docker/build-push-action@v5
         with:
           context: .
           file: ./src/main/resources/Dockerfile
+          build-args: |
+            JAR_FILE=ddd-cm-tla-sample-application-${{ steps.project-version.outputs.version }}.jar
           push: true
           tags: contextmapper/ddd-cm-tla-sample-application:latest
       - name: Build and Push (latest)
@@ -110,5 +115,7 @@ jobs:
         with:
           context: .
           file: ./src/main/resources/Dockerfile
+          build-args: |
+            JAR_FILE=ddd-cm-tla-sample-application-${{ steps.project-version.outputs.version }}.jar
           push: true
           tags: contextmapper/ddd-cm-tla-sample-application:${{ github.event.release.tag_name }}
