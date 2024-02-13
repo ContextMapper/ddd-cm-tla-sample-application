@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tla-sample-backend
+  labels:
+    app: tla-sample-backend
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      name: http
+      targetPort: 8080
+    - port: 1044
+      name: debug
+      targetPort: 1044
+  selector:
+    app: tla-sample-backend

@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tla-sample-backend
+  labels:
+    app: tla-sample-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tla-sample-backend
+  template:
+    metadata:
+      labels:
+        app: tla-sample-backend
+    spec:
+      containers:
+        - name: tla-sample-backend
+          image: contextmapper/ddd-cm-tla-sample-application:latest
+          imagePullPolicy: "Always"
+          envFrom:
+            - configMapRef:
+                name: tla-sample-backend-env-config
+            - secretRef:
+                name: tla-sample-backend-secrets
+          ports:
+            - containerPort: 8080
+              name: http
+            - containerPort: 8443
+              name: https
+          resources:
+            limits:
+              memory: 1024Mi
+            requests:
+              memory: 512Mi
+          volumeMounts:
+            - mountPath: /srv/web/conf/application.properties
+              name: tla-sample-backend-config
+              subPath: application.properties
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /actuator/health/readiness
+            initialDelaySeconds: 30
+            periodSeconds: 5
+      volumes:
+        - name: tla-sample-backend-config
+          configMap:
+            name: tla-sample-backend-config

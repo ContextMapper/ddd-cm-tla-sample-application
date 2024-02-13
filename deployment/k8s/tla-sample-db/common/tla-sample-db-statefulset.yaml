@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: tla-sample-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tla-sample-db
+  serviceName: "tla-sample-db"
+  template:
+    metadata:
+      labels:
+        app: tla-sample-db
+    spec:
+      containers:
+        - name: tla-sample-db
+          image: postgres:16.2-alpine
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: tla-sample-db-config
+            - secretRef:
+                name: tla-sample-db-password-secret
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: tla-sample-db-data
+              subPath: postgres
+      volumes:
+        - name: tla-sample-db-data
+          persistentVolumeClaim:
+            claimName: tla-sample-db-data

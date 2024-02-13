@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tla-sample-backend-config
+data:
+  application.properties: |-
+    # https://spring.io/guides/topicals/spring-on-kubernetes
+    server.shutdown=graceful
+    management.endpoints.web.exposure.include=*

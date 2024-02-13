@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tla-sample-db-config
+  labels:
+    app: tla-sample-db
+data:
+  POSTGRES_DB: "tla-sample"
+  POSTGRES_USER: "tla-sample"
+  POSTGRES_SCHEMA: "public"
