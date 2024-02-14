@@ -3,21 +3,12 @@ kind: Ingress
 metadata:
   name: tla-sample-backend-ingress
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: tla-sample-backend-ip
+    kubernetes.io/ingress.global-static-ip-name: tla-sample-dev-ip
+    networking.gke.io/managed-certificates: managed-cert
+    ingressClassName: "gce"
 spec:
   defaultBackend:
     service:
       name: tla-sample-backend
       port:
         number: 8080
-  rules:
-    - host: tla-sample-app.contextmapper.org
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: tla-sample-backend
-                port:
-                  number: 8080
