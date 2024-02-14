@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tla-sample-backend-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: tla-sample-backend-ip
+spec:
+  defaultBackend:
+    service:
+      name: tla-sample-backend
+      port:
+        number: 8080
+  rules:
+    - host: tla-sample-app.contextmapper.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: tla-sample-backend
+                port:
+                  number: 8080
