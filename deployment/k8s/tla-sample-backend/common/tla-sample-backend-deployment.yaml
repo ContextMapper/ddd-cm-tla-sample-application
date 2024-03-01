@@ -5,7 +5,7 @@ metadata:
   labels:
     app: tla-sample-backend
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: tla-sample-backend
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: tla-sample-backend
-          image: contextmapper/ddd-cm-tla-sample-application:latest
+          image: contextmapper/ddd-cm-tla-sample-application:v1.0
           imagePullPolicy: "Always"
           envFrom:
             - configMapRef:
@@ -30,9 +30,9 @@ spec:
               name: https
           resources:
             limits:
-              memory: 1024Mi
+              memory: 2048Mi
             requests:
-              memory: 512Mi
+              memory: 1024Mi
           volumeMounts:
             - mountPath: /srv/web/conf/application.properties
               name: tla-sample-backend-config
