@@ -25,7 +25,7 @@ You can get the cluster ip address with `minikube ip`.
 
 Once added to `/etc/hosts` and deployed the app, you can access the TLA API under:
 
-[http://tla-sample-app.contextmapper.org](http://tla-sample-app.contextmapper.org)
+[http://tla-sample-app.contextmapper.org/api/v1/tlas](http://tla-sample-app.contextmapper.org/api/v1/tlas)
 
 ### DEV
 The DEV environment is deployed to Google Kubernetes Engine (GKE).

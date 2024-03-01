@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tla-sample-backend-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: tla-sample-test-ip
+    networking.gke.io/managed-certificates: managed-cert
+    ingressClassName: "gce"
+spec:
+  defaultBackend:
+    service:
+      name: tla-sample-backend
+      port:
+        number: 8080

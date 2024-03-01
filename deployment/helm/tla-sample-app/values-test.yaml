@@ -1,0 +1,4 @@
+
+env: test
+namespace: tla-sample-test
+springProfile: test

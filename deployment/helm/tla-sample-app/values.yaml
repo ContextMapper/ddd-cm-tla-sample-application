@@ -1,0 +1,17 @@
+
+# backend
+backendConfigName: tla-sample-backend-config
+backendEnvConfigName: tla-sample-backend-env-config
+backendSecretsName: tla-sample-backend-secrets
+backendDeploymentName: tla-sample-backend
+backendServiceName: tla-sample-backend
+backendIngressName: tla-sample-backend-ingress
+backendImage: "contextmapper/ddd-cm-tla-sample-application:v1.0"
+
+# database
+dbConfigName: tla-sample-db-config
+dbPasswordSecret: tla-sample-db-password-secret
+dbStatefulSetName: tla-sample-db
+dbPVCName: tla-sample-db-data
+dbServiceName: tla-sample-db
+dbImage: "postgres:16.2-alpine"

@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.backendDeploymentName }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.backendDeploymentName }}
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: {{ .Values.backendDeploymentName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.backendDeploymentName }}
+    spec:
+      containers:
+        - name: {{ .Values.backendDeploymentName }}
+          image: {{ .Values.backendImage }}
+          imagePullPolicy: "Always"
+          envFrom:
+            - configMapRef:
+                name: {{ .Values.backendEnvConfigName }}
+            - secretRef:
+                name: {{ .Values.backendSecretsName }}
+          ports:
+            - containerPort: 8080
+              name: http
+            - containerPort: 8443
+              name: https
+          resources:
+            limits:
+              memory: 2048Mi
+            requests:
+              memory: 1024Mi
+          volumeMounts:
+            - mountPath: /srv/web/conf/application.properties
+              name: {{ .Values.backendConfigName }}
+              subPath: application.properties
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /actuator/health/readiness
+            initialDelaySeconds: 30
+            periodSeconds: 5
+      volumes:
+        - name: {{ .Values.backendConfigName }}
+          configMap:
+            name: {{ .Values.backendConfigName }}

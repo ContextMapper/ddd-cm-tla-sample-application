@@ -1,0 +1,4 @@
+
+env: local
+namespace: tla-sample-local
+springProfile: local

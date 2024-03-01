@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Values.dbStatefulSetName }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.dbStatefulSetName }}
+  serviceName: {{ .Values.dbServiceName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.dbStatefulSetName }}
+    spec:
+      containers:
+        - name: {{ .Values.dbStatefulSetName }}
+          image: {{ .Values.dbImage }}
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: {{ .Values.dbConfigName }}
+            - secretRef:
+                name: {{ .Values.dbPasswordSecret }}
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: {{ .Values.dbPVCName }}
+              subPath: postgres
+      volumes:
+        - name: {{ .Values.dbPVCName }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.dbPVCName }}

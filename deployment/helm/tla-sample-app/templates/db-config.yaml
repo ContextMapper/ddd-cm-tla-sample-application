@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.dbConfigName }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.dbStatefulSetName }}
+data:
+  POSTGRES_DB: "tla-sample"
+  POSTGRES_USER: "tla-sample"
+  POSTGRES_SCHEMA: "public"

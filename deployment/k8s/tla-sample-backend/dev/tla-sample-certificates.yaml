@@ -2,7 +2,7 @@ apiVersion: networking.gke.io/v1
 kind: ManagedCertificate
 metadata:
   name: managed-cert
+  namespace: tla-sample-dev
 spec:
   domains:
     - tla-sample-dev.contextmapper.org
-    - tla-sample-test.contextmapper.org

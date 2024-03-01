@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.backendEnvConfigName }}
+  namespace: {{ .Values.namespace }}
+data:
+  DEBUG_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044"
+  JAVA_OPTS: "-Xmx1g -Xms1g -Dspring.profiles.active={{ .Values.springProfile }} -DSpring.config.additional-location=file:/srv/web/conf/ -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8090 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Djava.io.tmpdir=/srv/web/tmp"

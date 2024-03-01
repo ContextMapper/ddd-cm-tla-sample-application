@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.backendIngressName }}
+  namespace: {{ .Values.namespace }}
+  {{- if or (eq "dev" $.Values.env) (eq "test" $.Values.env) }}
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: tla-sample-{{ .Values.env }}-ip
+    networking.gke.io/managed-certificates: managed-cert
+    ingressClassName: "gce"
+  {{- end }}
+spec:
+  {{- if or (eq "dev" $.Values.env) (eq "test" $.Values.env) }}
+  defaultBackend:
+    service:
+      name: {{ .Values.backendServiceName }}
+      port:
+        number: 8080
+  {{- end }}
+  {{- if eq "local" $.Values.env }}
+  rules:
+    - host: tla-sample-app.contextmapper.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.backendServiceName }}
+                port:
+                  number: 8080
+  {{- end }}
