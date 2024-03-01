@@ -6,7 +6,7 @@
 
     <groupId>org.contextmapper</groupId>
     <artifactId>ddd-cm-tla-sample-application</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
