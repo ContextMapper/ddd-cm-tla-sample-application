@@ -38,7 +38,7 @@
         <jackson.nullable.version>0.2.6</jackson.nullable.version>
         <mockito.version>5.4.0</mockito.version>
         <h2.version>2.2.220</h2.version>
-        <postgres.version>42.7.1</postgres.version>
+        <postgres.version>42.7.2</postgres.version>
         <flyway.version>9.19.4</flyway.version>
     </properties>
 
