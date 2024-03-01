@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: tla-sample-backend
-          image: contextmapper/ddd-cm-tla-sample-application:v1.0
+          image: contextmapper/ddd-cm-tla-sample-application:v1.1
           imagePullPolicy: "Always"
           envFrom:
             - configMapRef:

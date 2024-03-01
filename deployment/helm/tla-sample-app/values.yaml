@@ -6,7 +6,7 @@ backendSecretsName: tla-sample-backend-secrets
 backendDeploymentName: tla-sample-backend
 backendServiceName: tla-sample-backend
 backendIngressName: tla-sample-backend-ingress
-backendImage: "contextmapper/ddd-cm-tla-sample-application:v1.0"
+backendImage: "contextmapper/ddd-cm-tla-sample-application:v1.1"
 
 # database
 dbConfigName: tla-sample-db-config
