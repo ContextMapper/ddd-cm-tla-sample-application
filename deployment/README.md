@@ -58,3 +58,9 @@ _Note:_ You need to be connected to our cluster in order to deploy from your loc
 Google needs to know where the config for the login is:
 
 `export GOOGLE_APPLICATION_CREDENTIALS=~/.kube/gsa-key.json`
+
+# Links
+
+[Google Cloud main dashboard](https://console.cloud.google.com/welcome/new?project=context-mapper)
+[GKE dashboard](https://console.cloud.google.com/kubernetes/list/overview?project=context-mapper)
+
