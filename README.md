@@ -36,12 +36,6 @@ The application is implemented using the following technology:
  * H2 in-memory database (to store the TLAs)
    * [Flyway](https://flywaydb.org/) for database migration
 
-Start exploring the example application in the Gitpod online IDE right now:
-
-<a href="https://gitpod.io/#https://github.com/ContextMapper/ddd-cm-tla-sample-application" style="padding: 10px;">
-    <img src="https://gitpod.io/button/open-in-gitpod.svg" width="150" alt="Push" align="center">
-</a>
-
 ## Getting Started
 You can clone and then build the application with the following [Maven](https://maven.apache.org/) command:
 
