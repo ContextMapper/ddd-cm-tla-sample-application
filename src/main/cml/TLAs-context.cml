@@ -18,7 +18,7 @@ BoundedContext TLA_Resolver {
             String meaning;
             Set<String> alternativeMeanings;
             String link;
-            - TLAState status;
+            - TLAStatus status;
 
             def ThreeLetterAbbreviation() : write [ -> PROPOSED ];
             def accept() : write [ PROPOSED -> ACCEPTED ];
@@ -37,10 +37,10 @@ BoundedContext TLA_Resolver {
             String name;
         }
 
-        enum TLAState {
+        enum TLAStatus {
             aggregateLifecycle
 
-            PROPOSED, ACCEPTED, DECLINED, ARCHIVED;
+            DRAFTED, PROPOSED, ACCEPTED, DECLINED, ARCHIVED;
         }
     }
 

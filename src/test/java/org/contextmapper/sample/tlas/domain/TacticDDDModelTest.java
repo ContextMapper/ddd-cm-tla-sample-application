@@ -16,8 +16,18 @@
 
 package org.contextmapper.sample.tlas.domain;
 
+import com.tngtech.archunit.core.domain.JavaClass;
+import com.tngtech.archunit.core.domain.JavaEnumConstant;
+import com.tngtech.archunit.lang.ArchCondition;
+import com.tngtech.archunit.lang.ConditionEvents;
+import com.tngtech.archunit.lang.SimpleConditionEvent;
 import org.contextmapper.archunit.AbstractTacticArchUnitTest;
+import org.contextmapper.tactic.dsl.tacticdsl.Enum;
+import org.contextmapper.tactic.dsl.tacticdsl.EnumValue;
+import org.eclipse.xtext.EcoreUtil2;
 import org.junit.jupiter.api.Test;
+
+import java.util.Optional;
 
 import static com.tngtech.archunit.core.domain.JavaClass.Predicates.resideInAPackage;
 import static com.tngtech.archunit.core.domain.properties.HasType.Predicates.rawType;
@@ -53,6 +63,36 @@ class TacticDDDModelTest extends AbstractTacticArchUnitTest {
                 .and().areNotAssignableTo(Exception.class)
                 .and().areNotNestedClasses()
                 .should().beAnnotatedWith(rawType(resideInAPackage("org.jmolecules..")))
+                .check(classes);
+    }
+
+    @Test
+    void statusEnumsShouldBeModelledInCML() {
+        classes().that()
+                .areEnums()
+                .and().haveSimpleNameEndingWith("Status")
+                .should(new ArchCondition<>("adhere to CML enum values") {
+                    @Override
+                    public void check(JavaClass statusEnum, ConditionEvents events) {
+                        Optional<? extends Enum> optionalCmlStatus = EcoreUtil2.eAllOfType(context, Enum.class).stream()
+                                .filter(o -> o.getName().equals(statusEnum.getSimpleName()))
+                                .findAny();
+                        events.add(new SimpleConditionEvent(optionalCmlStatus, optionalCmlStatus.isPresent(),
+                                String.format("The Status enum '%s' is not modelled in CML.", statusEnum.getSimpleName())));
+
+                        if (optionalCmlStatus.isPresent()) {
+                            Enum cmlStatus = optionalCmlStatus.get();
+                            for (JavaEnumConstant javaEnumConstant : statusEnum.getEnumConstants()) {
+                                Optional<EnumValue> cmlEnumValue = cmlStatus.getValues().stream()
+                                        .filter(v -> v.getName().equals(javaEnumConstant.name()))
+                                        .findAny();
+                                events.add(new SimpleConditionEvent(statusEnum, cmlEnumValue.isPresent(),
+                                        String.format("The status enum '%s' does not have a value called '%s' in CML.",
+                                                cmlStatus.getName(), javaEnumConstant.name())));
+                            }
+                        }
+                    }
+                })
                 .check(classes);
     }
 
